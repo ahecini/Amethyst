@@ -1,4 +1,4 @@
-# PyQChem:Python modules for Quantum Chemistry
+# Amethyst:Python modules for Quantum Chemistry
 This Python application is made to **visualize** and **analyze** crisallographic structures by using as an input various types of files used in **quantum chemistry**.
 What this application enables:
 1. **visualization of molecule structure**.
