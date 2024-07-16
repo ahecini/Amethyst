@@ -108,19 +108,25 @@ def browse_txt(s11):
             begining_index.append(l_poscar.index("ID",start))
             start=l_poscar.index("ID",start)+1
         g=[]
+        v=[]
+        sg=[]
         for i in range(len(begining_index)):
             g.append([])
+            v.append([])
+            sg.append([])
             #here we assume that there are 7 attributes illustrated in the file:volume,energy...
             for j in range(begining_index[i]+7,ending_index[i],7):
                 #here it is assumed that the energy is the 4th column
                 g[i].append(float(l_poscar[j+3]))
+                v[i].append(float(l_poscar[j+4]))
+                sg[i].append(l_poscar[j+6])
         index_number=0
         for i in range(len(g)):
             index_number=index_number+len(g[i])
         xy=[] #we create a list of coordinates [index/generation,energy]
         for i in range(len(g)):
             for j in range(len(g[i])):
-                xy.append([i+1,g[i][j]])              
+                xy.append([i+1,g[i][j],v[i][j],sg[i][j]])              
         file = s11
         f=open(file)
         #here we assume that the vasp written molecules all start with EA
@@ -132,8 +138,12 @@ def browse_txt(s11):
             s1='EA'
         del(l_poscar[0])
         nrj=[] #we create a list for the energies collected
+        vol=[]
+        spaceg=[]
         for i in range(len(xy)):
             nrj.append(xy[i][1])
+            vol.append(xy[i][2])
+            spaceg.append(xy[i][3])
         if len(xy)<=10:
             r=len(begining_index)
         else:
@@ -157,7 +167,7 @@ def browse_txt(s11):
         #we create a button that generates the corresponding plot
         submit_button = Button(fen, text='generate plot')
         submit_button.pack()        
-        submit_button["command"]=partial(generate_plot_generation,xy,nrj,begining_index,l_poscar,value_inside)
+        submit_button["command"]=partial(generate_plot_generation,xy,nrj,begining_index,l_poscar,value_inside,vol,spaceg)
         fen.mainloop()  
 def browse(b1,b2,b3,b4):
     """

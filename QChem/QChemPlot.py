@@ -88,7 +88,7 @@ def raise_frame(frame):
     function used to make a frame the top/visible one in a window
     """
     frame.tkraise()
-def motion(a1,a2,b1,b2,event,win,frame,ph,nrj,xy,l_poscar,phx):
+def motion(a1,a2,b1,b2,event,win,frame,ph,nrj,xy,l_poscar,phx,vol,spaceg):
     """
     function used to extract the clicking point of the mouse cursor (providing that
     this point is inside the plot) and builds a new plot with the new axis bounds which are 
@@ -135,7 +135,7 @@ def motion(a1,a2,b1,b2,event,win,frame,ph,nrj,xy,l_poscar,phx):
                 button_list2[x2]['command']=partial(letmesee_poscar,i+a1,l_poscar) 
                 button_list2[x2].place(x=new_xyx[i][0],y=new_xyx[i][1]) 
                 #we add a hovering message that gives the corresponding energy of the point
-                CreateToolTip(button_list2[x2],12,text="energy:"+str(nrj[i+a1])+"eV/Atom")
+                CreateToolTip(button_list2[x2],12,text="energy:"+str(nrj[i+a1])+"eV/Atom\n"+"Volume:"+str(vol[i+a1])+"A^3\n"+"Spacegroup:"+str(spaceg[i+a1]))
                 x2+=1 #we increment the index each time
         #we create a button to come back from the zoom (de-zoom it if you want)
         b2x=Button(frame1,text='back',command=lambda:raise_frame(frame)) 
@@ -144,13 +144,13 @@ def motion(a1,a2,b1,b2,event,win,frame,ph,nrj,xy,l_poscar,phx):
         raise_frame(frame1) #we finally make the frame with the zoomed plot appear 
     else:
         return #in case the point clicked was outside the plot we don't do anything
-def zoom(frame,win,a1,a2,b1,b2,ph,nrj,xy,l_poscar,phx):
+def zoom(frame,win,a1,a2,b1,b2,ph,nrj,xy,l_poscar,phx,vol,spaceg):
     """
     function used to zoom in, it essentially just uses the motion function as an event
     """
     frame['cursor']='target' #we change the cursor to signify that we are in zoom mode
     #when we enter the zoom mode the left-click of the mouse triggers the zoom
-    win.bind('<Button-1>',lambda event: motion(a1,a2,b1,b2,event,win,frame,ph,nrj,xy,l_poscar,phx))
+    win.bind('<Button-1>',lambda event: motion(a1,a2,b1,b2,event,win,frame,ph,nrj,xy,l_poscar,phx,vol,spaceg))
 def normal_cursor(frame,win):
     """
     used to turn back the cursor when we finish or 
@@ -168,7 +168,7 @@ def normal_cursor_event(event,frame,win):
     normal_cursor(frame,win)
 def nothing(event):
     return
-def generate_plot_generation(xy,nrj,begining_index,l_poscar,value_inside):
+def generate_plot_generation(xy,nrj,begining_index,l_poscar,value_inside,vol,spaceg):
     """
     function used to generate energy-generation plot using tkinter
     as an interface and buttons as points in the plot
@@ -217,10 +217,10 @@ def generate_plot_generation(xy,nrj,begining_index,l_poscar,value_inside):
         button_list.append(Button(frame,image=ph,height=5,width=5,borderwidth=0)) 
         button_list[x]['command']=partial(letmesee_poscar,i+a,l_poscar) 
         button_list[x].place(x=new_xyx[i][0],y=new_xyx[i][1]) 
-        CreateToolTip(button_list[x],12,text="energy:"+str(nrj[i+a])+"eV/Atom")
+        CreateToolTip(button_list[x],12,text="energy:"+str(nrj[i+a])+"eV/Atom\n"+"Volume:"+str(vol[i+a])+"A^3\n"+"Spacegroup:"+str(spaceg[i+a]))
         x+=1
     #we make a button to enable the zoom mode
-    b1xx=Button(frame,text='zoom',command=lambda:zoom(frame,win,a,b,np.min(nrj),np.max(nrj),ph,nrj,xy,l_poscar,phx))
+    b1xx=Button(frame,text='zoom',command=lambda:zoom(frame,win,a,b,np.min(nrj),np.max(nrj),ph,nrj,xy,l_poscar,phx,vol,spaceg))
     b1xx.place(x=650,y=50)
     win.update()
     win.mainloop()

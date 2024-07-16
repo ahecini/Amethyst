@@ -14,16 +14,16 @@ def run_voila():
     """
     runs in the command line the voila command to view the output of the .jnb file in the folder
     """
-    os.chdir(SCRIPT_DIR)
-    notebook_path = 'viewngl.ipynb'
+    #os.chdir(SCRIPT_DIR)
+    notebook_path =SCRIPT_DIR+'\\'+'viewngl.ipynb'
     command = ['voila', notebook_path]
     subprocess.run(command)
 def high_res(x):
     """
     renders high definition visualization and enables duplication of structures
     """
-    os.chdir(SCRIPT_DIR)
-    write('test.vasp',x)
+    #os.chdir(SCRIPT_DIR)
+    write(SCRIPT_DIR+'\\'+'test.vasp',x)
     voila_thread = threading.Thread(target=run_voila)
     voila_thread.start()
 def low_res(x):
