@@ -20,13 +20,13 @@ Markdown
 ## ⚙️ Features
 
 * Support for different quantum chemistry files (**cif**, **xyz**, **vasp**, **res** and **Poscar**/**USPEX**) + Relevant data extraction.
-* 
 ![Alternative description of the image](screenshots/1.jpg)
 
-* Classification of extracted data in interactive plots (energy/index or energy/generation plots) by making them clickable to view a 3D model of the corresponding structure.
+* Classification of extracted data in interactive plots (energy/index or energy/generation plots).
+![Alternative description of the image](screenshots/3.jpg)
+
+* 3D visualization of cristalographic structures.
 ![Alternative description of the image](screenshots/2.jpg)
-
-
 ---
 
 ## 🛠 Technical Stack
