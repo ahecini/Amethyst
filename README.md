@@ -19,12 +19,11 @@ Markdown
 
 ## ⚙️ Features
 
-* Reads, one or multiple, quantum chemistry files (**cif**, **xyz**, **vasp**, **res** and **Poscar**/**USPEX**).
-* Extracts the relevant data.
-
+* Support for different quantum chemistry files (**cif**, **xyz**, **vasp**, **res** and **Poscar**/**USPEX**) + Relevant data extraction.
+* 
 ![Alternative description of the image](screenshots/1.jpg)
-* Generates energy/index or energy/generation plots (depending on the file).
-* Classification of extracted data in interactive plots by making them clickable to view a 3D model of the corresponding structure.
+
+* Classification of extracted data in interactive plots (energy/index or energy/generation plots) by making them clickable to view a 3D model of the corresponding structure.
 ![Alternative description of the image](screenshots/2.jpg)
 
 
