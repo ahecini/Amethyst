@@ -29,15 +29,6 @@ Markdown
 ## 🛠 Technical Stack
 
 * **Language & Framework :** Python, Jupyter Notebook
+* **Libraries :** numpy, matplotlib, ase, pymatgen
 * **IDE :** Visual Studio Code, Spyder
 * **Versioning :** Git/GitHub
-
----
-
-## 🏗 Architecture & Conception
-
-[Décris brièvement tes choix d'architecture, c'est ce qui valorise le plus ta rigueur d'ingénieur.]
-
-* **Architecture en couches :** Controller ➔ Service ➔ Repository (séparation stricte des responsabilités).
-* **Sécurité :** Gestion des rôles (RBAC) et chiffrement des données sensibles.
-* **Base de données :** Modèle relationnel normalisé avec requêtes optimisées (indexation).
