@@ -1,10 +1,12 @@
 # 💎 Amethyst — Cristallography software
 
-![Java](https://img.shields.io/badge/Java-17-orange?logo=openapi-initiative)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-brightgreen?logo=springboot)
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)
-![License](https://img.shields.io/badge/License-MIT-green)
+Markdown
+![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1.26+-013243?logo=numpy&logoColor=white)
+![ASE](https://img.shields.io/badge/ASE-Atomic_Simulation_Environment-4B6584?logo=python&logoColor=white)
+![pymatgen](https://img.shields.io/badge/pymatgen-Materials_Genomics-2C3E50?logo=python&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8+-11557c?logo=python&logoColor=white)
 
 > **Amethyst** is a Python application, used to classify, model and extract cristallographic data provided by quantum computing.
 
@@ -17,7 +19,7 @@
 
 ## ⚙️ Features
 
-- Reads, one or multiple, quantum chemistry files (cif, xyz, vasp, res and Poscar/USPEX).
+- Reads, one or multiple, quantum chemistry files (**cif**, **xyz**, **vasp**, **res** and **Poscar**/**USPEX**).
 - Extracts the relevant data.
 - Generates energy/index or energy/generation plots (depending on the file).
 - Classifies extracted data in these plots by making them clickable to view a 3D model of the corresponding structure.
